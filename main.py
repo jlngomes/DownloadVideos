@@ -115,7 +115,6 @@ def descompactar(zip_path: str):
 
 def baixar_primeiro_video(link: str):
     data_atual = datetime.today().date()
-
     dia, mes, ano = data_tratatamento(data=data_atual)
 
     # Configura o modo headless
