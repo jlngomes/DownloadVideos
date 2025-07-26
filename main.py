@@ -1,5 +1,4 @@
 import zipfile
-from pathlib import Path
 import shutil
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -12,10 +11,8 @@ import os
 # PATH = f'{os.getcwd()}\\download'
 PATH = os.path.join(os.getcwd(), 'download')
 
-def data_tratatamento(data):
-    data_str = str(data)
-    data_lista = data_str.split('-')
-    dict = {
+def dcit_mes_datetime():
+    return {
             "01":"Jan",
             "02":"Fev",
             "03":"Mar",
@@ -29,7 +26,14 @@ def data_tratatamento(data):
             "11":"Nov",
             "12":"Dec",
     }
-    return data_lista[2], dict.get(data_lista[1]), data_lista[0]
+
+def data_tratatamento(data):
+    data_str = str(data)
+    data_lista = data_str.split('-')
+
+    #dict = dcit_mes_datetime()
+
+    return data_lista[2], dcit_mes_datetime().get(data_lista[1]), data_lista[0]
 
 def baixar_informativo(link: str, path: str):
 
